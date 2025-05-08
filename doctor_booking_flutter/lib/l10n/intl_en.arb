@@ -1,0 +1,9 @@
+{
+  "helloWorld": "Hello World!",
+  "mediSmart" : "MediSmart",
+  "onBoarding2" :"Welcome to our Doctor Booking App! Get ready to take control of your healthcare journey",
+  "onBoarding4" :"Easily find and book appointments with trusted doctors in just a few taps. Say goodbye to long waiting times and hello to hassle-free appointments",
+  "onBoarding3" : "Start your journey to better health by finding and booking appointments with top doctors in your area",
+  "continueAsDoctor" : "Continue as Doctor",
+  "continueAsPatient" : "Continue as Patient"
+}

@@ -1,0 +1,2 @@
+
+//class AppointmentState extends AsyncNotifier<>{}
