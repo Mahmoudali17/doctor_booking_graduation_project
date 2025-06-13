@@ -26,4 +26,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get continueAsPatient => 'Continue as Patient';
+
+  @override
+  String get welcome => 'Welcome!';
+
+  @override
+  String get gladToSeeYou => 'Glad to see you again! 👋';
+
+  @override
+  String get rememberMe => 'Remember Me';
 }

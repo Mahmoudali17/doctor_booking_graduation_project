@@ -136,6 +136,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue as Patient'**
   String get continueAsPatient;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome!'**
+  String get welcome;
+
+  /// No description provided for @gladToSeeYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Glad to see you again! 👋'**
+  String get gladToSeeYou;
+
+  /// No description provided for @rememberMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember Me'**
+  String get rememberMe;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -5,5 +5,8 @@
   "onBoarding4" :"Easily find and book appointments with trusted doctors in just a few taps. Say goodbye to long waiting times and hello to hassle-free appointments",
   "onBoarding3" : "Start your journey to better health by finding and booking appointments with top doctors in your area",
   "continueAsDoctor" : "Continue as Doctor",
-  "continueAsPatient" : "Continue as Patient"
+  "continueAsPatient" : "Continue as Patient",
+  "welcome": "Welcome!",
+  "gladToSeeYou" : "Glad to see you again! 👋",
+  "rememberMe" : "Remember Me"
 }

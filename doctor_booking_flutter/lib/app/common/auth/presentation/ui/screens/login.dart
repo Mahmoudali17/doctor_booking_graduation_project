@@ -10,6 +10,9 @@ import 'package:doctor_booking_flutter/src/widgets/alert_dialog.dart';
 import 'package:doctor_booking_flutter/src/widgets/loader/loader.dart';
 import 'package:flutter/gestures.dart';
 
+import '../../../../../../l10n/app_localizations.dart';
+
+
 @RoutePage(name: 'login')
 class LoginScreen extends HookConsumerWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -36,12 +39,13 @@ class LoginScreen extends HookConsumerWidget {
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           children: [
             KText(
-              'Welcome!',
+              // AppLocalizations.of(context)!.welcome!,
+              "Welcome!",
               fontSize: 24.sp,
               fontWeight: FontWeight.w500,
             ),
             KText(
-              'Glad to see you again! 👋',
+              "Glad to see you again! 👋",
               fontSize: 18.sp,
             ),
             SizedBox(
@@ -91,7 +95,7 @@ class LoginScreen extends HookConsumerWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 8.w),
-                      child: const KText('Remember Me'),
+                      child: const KText("Remember Me"),
                     )
                   ],
                 ),

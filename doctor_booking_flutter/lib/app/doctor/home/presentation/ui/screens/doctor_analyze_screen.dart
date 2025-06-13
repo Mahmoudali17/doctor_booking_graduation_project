@@ -35,7 +35,9 @@ class _DoctorAnalyzeScreenState extends State<DoctorAnalyzeScreen> {
 
     final request = http.MultipartRequest(
       'POST',
-      Uri.parse('http://192.168.1.6:8000/analyze'),
+      // Uri.parse('http://192.168.1.7:8000/analyze'),
+        Uri.parse('http://192.168.1.7:5001/predict')
+
     );
     request.files.add(
       await http.MultipartFile.fromPath(
@@ -52,7 +54,9 @@ class _DoctorAnalyzeScreenState extends State<DoctorAnalyzeScreen> {
       if (response.statusCode == 200) {
         final data = json.decode(responseBody);
         setState(() {
-          _analysisResult = data['result']; // adjust based on your API
+          // _analysisResult = data['result']; // adjust based on your API
+          _analysisResult = '${data['prediction']} (${data['confidence']})';
+
         });
       } else {
         setState(() {
