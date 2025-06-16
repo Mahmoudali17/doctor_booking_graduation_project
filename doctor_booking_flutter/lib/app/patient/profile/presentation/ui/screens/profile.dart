@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:doctor_booking_flutter/app/common/auth/providers.dart';
 import 'package:doctor_booking_flutter/core/di/di_providers.dart';
+import 'package:doctor_booking_flutter/l10n/app_localizations.dart';
 import 'package:doctor_booking_flutter/lib.dart';
 import 'package:doctor_booking_flutter/src/extensions/context.dart';
 import 'package:doctor_booking_flutter/src/router/navigator.dart';
@@ -51,7 +52,7 @@ class PatientProfileScreen extends ConsumerWidget {
                 Icons.settings,
                 color: context.primary,
               ),
-              title: const Text('Settings'),
+              title:  Text(AppLocalizations.of(context)!.settings),
               trailing: const Icon(Icons.keyboard_arrow_right_sharp),
             ),
             const Divider(),
@@ -63,7 +64,7 @@ class PatientProfileScreen extends ConsumerWidget {
                 Icons.privacy_tip,
                 color: context.primary,
               ),
-              title: const Text('Licenses and Privacy policy'),
+              title:  Text(AppLocalizations.of(context)!.licenses),
               trailing: const Icon(Icons.keyboard_arrow_right_sharp),
             ),
             const Divider(),
@@ -72,21 +73,21 @@ class PatientProfileScreen extends ConsumerWidget {
                 Icons.logout,
                 color: context.primary,
               ),
-              title: const Text('Logout'),
+              title:  Text(AppLocalizations.of(context)!.logout),
               trailing: const Icon(Icons.keyboard_arrow_right_sharp),
               onTap: () {
                 showAdaptiveDialog(
                     context: context,
                     builder: (context) => AlertDialog.adaptive(
-                          title: const Text('Logout'),
+                          title:  Text(AppLocalizations.of(context)!.logout),
                           content:
-                              const Text('Are you sure you want to logout?'),
+                               Text(AppLocalizations.of(context)!.areYouSure),
                           actions: [
                             TextButton(
                               onPressed: () {
                                 Navigator.pop(context);
                               },
-                              child: const Text('Cancel'),
+                              child:  Text(AppLocalizations.of(context)!.cancel),
                             ),
                             TextButton(
                               onPressed: () async {
@@ -95,7 +96,7 @@ class PatientProfileScreen extends ConsumerWidget {
                                 AppNavigator.of(context)
                                     .replaceAll([const Onboarding()]);
                               },
-                              child: const Text('Logout'),
+                              child:  Text(AppLocalizations.of(context)!.logout),
                             ),
                           ],
                         ));

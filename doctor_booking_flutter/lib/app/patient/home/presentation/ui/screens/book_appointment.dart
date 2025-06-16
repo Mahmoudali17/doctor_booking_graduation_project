@@ -6,6 +6,7 @@ import 'package:doctor_booking_flutter/app/doctor/auth/data/models/doctor.dart';
 import 'package:doctor_booking_flutter/app/patient/home/providers.dart';
 import 'package:doctor_booking_flutter/core/service_exceptions/service_exception.dart';
 import 'package:doctor_booking_flutter/core/services/add_event_to_calendar.dart';
+import 'package:doctor_booking_flutter/l10n/app_localizations.dart';
 import 'package:doctor_booking_flutter/lib.dart';
 import 'package:doctor_booking_flutter/src/extensions/context.dart';
 import 'package:doctor_booking_flutter/src/widgets/margin.dart';
@@ -59,7 +60,7 @@ class BookAppointmentScreen extends HookConsumerWidget {
                             height: 20,
                           ),
                           KText(
-                            'Add a note for your appointment',
+                            AppLocalizations.of(context)!.addaNoteForYourAppointment,
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w500,
                           ),
@@ -70,7 +71,7 @@ class BookAppointmentScreen extends HookConsumerWidget {
                             controller: patientNoteController,
                             maxLines: 4,
                             decoration: InputDecoration(
-                              hintText: 'Type note here',
+                              hintText: AppLocalizations.of(context)!.typeNoteHere,
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -89,7 +90,7 @@ class BookAppointmentScreen extends HookConsumerWidget {
                                   Navigator.pop(
                                       context, patientNoteController.text);
                                 },
-                                child: const Text('Add note'),
+                                child: Text(AppLocalizations.of(context)!.addNote),
                               ),
                             ),
                           ),
@@ -127,16 +128,16 @@ class BookAppointmentScreen extends HookConsumerWidget {
             showAdaptiveDialog(
               context: context,
               builder: (context) => AlertDialog.adaptive(
-                title: const Text('Booking complete'),
-                content: const Text(
-                    'Your appointment has been booked successfully, do you want to add this appointment to your Calendar?'),
+                title:  Text(AppLocalizations.of(context)!.bookingComplete),
+                content:  Text(
+                    AppLocalizations.of(context)!.yourAppointmentHasBeenBooked),
                 actions: [
                   TextButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
                     child: Text(
-                      'No',
+                      AppLocalizations.of(context)!.no,
                       style:
                           AppStyle.textStyle.copyWith(color: context.outline),
                     ),
@@ -148,7 +149,7 @@ class BookAppointmentScreen extends HookConsumerWidget {
                           .addToCalendar(appointment: newAppointment);
                     },
                     child: Text(
-                      'Yes',
+                      AppLocalizations.of(context)!.yes,
                       style: AppStyle.textStyle.copyWith(color: Colors.black),
                     ),
                   ),
@@ -185,7 +186,7 @@ class BookAppointmentScreen extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: KText(
-          'Book appointment',
+          AppLocalizations.of(context)!.bookAppointment,
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
         ),
@@ -207,7 +208,7 @@ class BookAppointmentScreen extends HookConsumerWidget {
           pauseSlots: get120Days(),
           hideBreakTime: false,
           bookingButtonColor: context.primary,
-          bookingButtonText: 'Book Appointment',
+          bookingButtonText: AppLocalizations.of(context)!.bookAppointment,
           disabledDays: const [6, 7],
           bookingService: BookingService(
               serviceName: 'Appointments',

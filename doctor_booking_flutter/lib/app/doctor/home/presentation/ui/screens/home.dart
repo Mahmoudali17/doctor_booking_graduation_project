@@ -4,6 +4,7 @@ import 'package:doctor_booking_flutter/app/common/auth/providers.dart';
 import 'package:doctor_booking_flutter/app/doctor/home/data/models/custom_appointment.dart';
 import 'package:doctor_booking_flutter/app/doctor/profile/presentation/ui/screens/profile.dart';
 import 'package:doctor_booking_flutter/app/patient/home/providers.dart';
+import 'package:doctor_booking_flutter/l10n/app_localizations.dart';
 import 'package:doctor_booking_flutter/lib.dart';
 import 'package:doctor_booking_flutter/src/constants/app_constants.dart';
 import 'package:doctor_booking_flutter/src/extensions/appointment_list.dart';
@@ -110,7 +111,7 @@ class _DoctorHomeView extends ConsumerWidget {
             result.when(success: (data) {
               context.router.popUntilRoot();
               Toast.success(
-                'Appointment cancelled successfully',
+                AppLocalizations.of(context)!.appointmentCancelledSuccessfully,
                 context,
               );
             }, apiFailure: (e, _) {
@@ -133,7 +134,7 @@ class _DoctorHomeView extends ConsumerWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 16.h),
                       child: KText(
-                        'Appointment Details',
+                        AppLocalizations.of(context)!.appointmentDetails,
                         fontWeight: FontWeight.w500,
                         fontSize: 20.sp,
                       ),
@@ -141,7 +142,7 @@ class _DoctorHomeView extends ConsumerWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: KText(
-                        'Date',
+                        AppLocalizations.of(context)!.date,
                         fontSize: 15.sp,
                       ),
                     ),
@@ -168,7 +169,7 @@ class _DoctorHomeView extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           KText(
-                            'Patient Note',
+                            AppLocalizations.of(context)!.patientNote,
                             fontSize: 15.sp,
                           ),
                           ColSpacing(8.h),
@@ -182,7 +183,7 @@ class _DoctorHomeView extends ConsumerWidget {
                               SizedBox(
                                 width: 280.w,
                                 child: KText(
-                                  appointment.notes ?? 'No note added',
+                                  appointment.notes ?? AppLocalizations.of(context)!.noNoteAdded,
                                   fontSize: 16.sp,
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -226,30 +227,30 @@ class _DoctorHomeView extends ConsumerWidget {
                                 showAdaptiveDialog(
                                   context: context,
                                   builder: (context) => AlertDialog.adaptive(
-                                    title: const Text('Delete Appointment'),
-                                    content: const Text(
-                                        'Are you sure you want to delete this appointment?'),
+                                    title:  Text(AppLocalizations.of(context)!.deleteAppointment),
+                                    content:  Text(
+                                        AppLocalizations.of(context)!.areYouSureYouWantToDeleteThisAppointment),
                                     actions: [
                                       TextButton(
                                         onPressed: () {
                                           Navigator.pop(context);
                                           Navigator.pop(context);
                                         },
-                                        child: const Text('No'),
+                                        child:  Text(AppLocalizations.of(context)!.no),
                                       ),
                                       TextButton(
                                         style: TextButton.styleFrom(
                                             foregroundColor: context.error),
                                         onPressed: () async =>
                                             await onCancel(appointment),
-                                        child: const Text('Yes'),
+                                        child:  Text(AppLocalizations.of(context)!.yes),
                                       ),
                                     ],
                                   ),
                                 );
                            //   }
                             },
-                            child: const Text('Cancel Appointment')),
+                            child:  Text(AppLocalizations.of(context)!.cancelAppointment)),
                       ),
                   ],
                 ),

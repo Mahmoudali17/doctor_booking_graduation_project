@@ -14,6 +14,8 @@ import 'package:doctor_booking_flutter/src/widgets/margin.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
+import '../../../../../../l10n/app_localizations.dart';
+
 @RoutePage(name: 'doctorLogin')
 class DoctorLoginScreen extends HookConsumerWidget {
   const DoctorLoginScreen({super.key});
@@ -36,14 +38,14 @@ class DoctorLoginScreen extends HookConsumerWidget {
           children: [
             ColSpacing(100.h),
             KText(
-              'Welcome Doctor!',
+              AppLocalizations.of(context)!.welcomeDoctor,
               fontSize: 20.sp,
               fontWeight: FontWeight.w500,
               color: context.primary,
             ).animate(onPlay: (controller) => controller.repeat()).shimmer(
                 duration: const Duration(seconds: 2), color: context.onPrimary),
             KText(
-              'Glad to see you again! 👋',
+              AppLocalizations.of(context)!.gladToSeeYou,
               fontSize: 16.sp,
             ),
             SizedBox(
@@ -52,7 +54,7 @@ class DoctorLoginScreen extends HookConsumerWidget {
 
             ///Textfield for email address
             DefaultTextFormField(
-              label: 'Email address',
+              label: AppLocalizations.of(context)!.emailAddress,
               hint: 'user@example.com',
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
@@ -71,7 +73,7 @@ class DoctorLoginScreen extends HookConsumerWidget {
             Padding(
               padding: EdgeInsets.only(top: 16.h),
               child: PasswordTextField(
-                label: 'Password',
+                label: AppLocalizations.of(context)!.password,
                 controller: passwordController,
                 emptyTextError: 'Password is required',
               ),
@@ -96,7 +98,7 @@ class DoctorLoginScreen extends HookConsumerWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 8.w),
-                      child: const KText('Remember Me'),
+                      child: KText(AppLocalizations.of(context)!.rememberMe,),
                     )
                   ],
                 ),
@@ -136,7 +138,7 @@ class DoctorLoginScreen extends HookConsumerWidget {
                                       Align(
                                         alignment: Alignment.centerLeft,
                                         child: KText(
-                                          'Enter your email address here to reset password',
+                                          AppLocalizations.of(context)!.enteryouremailaddressheretoresetpassword,
                                           fontSize: 20.sp,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -146,7 +148,7 @@ class DoctorLoginScreen extends HookConsumerWidget {
                                           vertical: 24.h,
                                         ),
                                         child: DefaultTextFormField(
-                                          label: 'Email address',
+                                          label: AppLocalizations.of(context)!.emailAddress,
                                           hint: 'user@example.com',
                                           controller:
                                               forgotPasswordEmailController,
@@ -197,11 +199,11 @@ class DoctorLoginScreen extends HookConsumerWidget {
                                               //if email is no valid, prompt user to input valid mail
                                               showMessageAlertDialog(context,
                                                   text:
-                                                      'Provide a valid email address to continue to password reset');
+                                                      AppLocalizations.of(context)!.provideEmail);
                                             }
                                           },
-                                          child: const Text(
-                                            'Reset password',
+                                          child:  Text(
+                                            AppLocalizations.of(context)!.resetpassword,
                                           ),
                                         ),
                                       ),
@@ -214,8 +216,8 @@ class DoctorLoginScreen extends HookConsumerWidget {
                         },
                       );
                     },
-                    child: const KText(
-                      'Forgot Password?',
+                    child:  KText(
+                      AppLocalizations.of(context)!.forgotPassword,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -247,7 +249,7 @@ class DoctorLoginScreen extends HookConsumerWidget {
                   });
                 }
               },
-              child: const Text('Login'),
+              child: Text(AppLocalizations.of(context)!.login),
             ),
             ColSpacing(16.h),
             GestureDetector(
@@ -259,9 +261,9 @@ class DoctorLoginScreen extends HookConsumerWidget {
               child: Text.rich(
                 TextSpan(
                   children: [
-                    const TextSpan(text: 'Don\'t have an account?  '),
+                    TextSpan(text: AppLocalizations.of(context)!.dontHaveanAccount ),
                     TextSpan(
-                      text: 'Signup',
+                      text: AppLocalizations.of(context)!.signup,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           context.pushRoute(const DoctorSignup());

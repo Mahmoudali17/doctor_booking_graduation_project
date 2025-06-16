@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:doctor_booking_flutter/app/common/home/models/appointment.dart';
 import 'package:doctor_booking_flutter/app/patient/home/presentation/ui/widgets/upcoming_card.dart';
+import 'package:doctor_booking_flutter/l10n/app_localizations.dart';
 import 'package:doctor_booking_flutter/lib.dart';
 
 @RoutePage(name: 'upcomingSchedules')
@@ -14,7 +15,7 @@ class UpcomingSchedulesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: KText(
-          'Upcoming Schedules',
+          AppLocalizations.of(context)!.upcomingSchedules,
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
         ),

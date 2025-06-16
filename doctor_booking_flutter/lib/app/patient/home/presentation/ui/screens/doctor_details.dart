@@ -1,6 +1,7 @@
 
 import 'package:auto_route/annotations.dart';
 import 'package:doctor_booking_flutter/app/doctor/auth/data/models/doctor.dart';
+import 'package:doctor_booking_flutter/l10n/app_localizations.dart';
 import 'package:doctor_booking_flutter/lib.dart';
 import 'package:doctor_booking_flutter/src/extensions/context.dart';
 import 'package:doctor_booking_flutter/src/extensions/string.dart';
@@ -20,7 +21,7 @@ class DoctorDetailsScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: KText(
-          'Doctor details',
+          AppLocalizations.of(context)!.doctorDetails,
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
         ),
@@ -108,7 +109,7 @@ class DoctorDetailsScreen extends ConsumerWidget {
               onPressed: () {
                 AppNavigator.of(context).push(BookAppointment(doctor: doctor));
               },
-              child: const Text('Book Appointment')),
+              child: Text(AppLocalizations.of(context)!.bookAppointment)),
         ),
       ),
     );

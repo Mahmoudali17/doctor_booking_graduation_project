@@ -8,6 +8,7 @@ import 'package:doctor_booking_flutter/app/patient/home/presentation/ui/widgets/
 import 'package:doctor_booking_flutter/app/patient/home/presentation/ui/widgets/upcoming_card.dart';
 import 'package:doctor_booking_flutter/app/patient/home/providers.dart';
 import 'package:doctor_booking_flutter/app/patient/profile/presentation/ui/screens/profile.dart';
+import 'package:doctor_booking_flutter/l10n/app_localizations.dart';
 import 'package:doctor_booking_flutter/lib.dart';
 import 'package:doctor_booking_flutter/src/constants/app_constants.dart';
 import 'package:doctor_booking_flutter/src/constants/assets.dart';
@@ -101,8 +102,8 @@ class _PatientHomeView extends HookConsumerWidget {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const KText(
-                        'No upcoming appointment found',
+                       KText(
+                        AppLocalizations.of(context)!.noUpcomingAppointmentFound,
                         fontWeight: FontWeight.w500,
                       ),
                       Padding(
@@ -122,7 +123,7 @@ class _PatientHomeView extends HookConsumerWidget {
                 return Column(
                   children: [
                     CategoryHeader(
-                      title: 'Upcoming Appointments',
+                      title: AppLocalizations.of(context)!.upcomingAppointments,
                       onPressed: () {
                         //navigate to upcoming schedules
                         AppNavigator.of(context).push(
@@ -143,7 +144,7 @@ class _PatientHomeView extends HookConsumerWidget {
             ),
             ColSpacing(8.h),
             CategoryHeader(
-              title: 'Let\'s find your doctor',
+              title: AppLocalizations.of(context)!.letsFindYourDoctor,
               onPressed: () {},
               actionText: '',
               //actionIcon: IconButton(onPressed: (){}, icon: Icon(Icons.search)),
@@ -188,9 +189,9 @@ class _PatientHomeView extends HookConsumerWidget {
                 if (currentList.isEmpty) {
                   return SizedBox(
                     height: 300.h,
-                    child: const Center(
+                    child:  Center(
                       child: KText(
-                        'No doctor found, please check in later',
+                        AppLocalizations.of(context)!.noDoctorFound,
                         textAlign: TextAlign.center,
                       ),
                     ),

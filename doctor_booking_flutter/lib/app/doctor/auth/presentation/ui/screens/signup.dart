@@ -8,6 +8,7 @@ import 'package:doctor_booking_flutter/app/doctor/auth/data/models/doctor_specia
 import 'package:doctor_booking_flutter/core/di/di_providers.dart';
 import 'package:doctor_booking_flutter/core/service_exceptions/src/api_exceptions.dart';
 import 'package:doctor_booking_flutter/core/validators/text_field_validators.dart';
+import 'package:doctor_booking_flutter/l10n/app_localizations.dart';
 import 'package:doctor_booking_flutter/lib.dart';
 import 'package:doctor_booking_flutter/src/extensions/context.dart';
 import 'package:doctor_booking_flutter/src/router/navigator.dart';
@@ -41,14 +42,14 @@ class DoctorSignupScreen extends HookConsumerWidget {
           children: [
             ColSpacing(16.h),
             KText(
-              'Welcome!👋',
+              AppLocalizations.of(context)!.welcomeHand,
               fontSize: 25.sp,
               fontWeight: FontWeight.w500,
               color: context.primary,
             ).animate(onPlay: (controller) => controller.repeat()).shimmer(
                 duration: const Duration(seconds: 2), color: context.onPrimary),
             KText(
-              'Please fill in the details below to create your account',
+              AppLocalizations.of(context)!.pleaseFill,
               fontSize: 16.sp,
             ),
             SizedBox(
@@ -56,8 +57,8 @@ class DoctorSignupScreen extends HookConsumerWidget {
             ),
 
             DefaultTextFormField(
-              label: 'Full name',
-              hint: 'Type your full name here',
+              label: AppLocalizations.of(context)!.fullName,
+              hint: AppLocalizations.of(context)!.typeYourFullNameHere,
               controller: fullNameController,
               emptyTextError: 'Full name is required',
               keyboardType: TextInputType.name,
@@ -76,7 +77,7 @@ class DoctorSignupScreen extends HookConsumerWidget {
             ),
             //email textField
             DefaultTextFormField(
-              label: 'Email address',
+              label: AppLocalizations.of(context)!.emailAddress,
               hint: 'user@example.com',
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
@@ -101,7 +102,7 @@ class DoctorSignupScreen extends HookConsumerWidget {
                       '🩺',
                       color: context.primary,
                     ),
-                    labelText: 'Choose a speciality'),
+                    labelText: AppLocalizations.of(context)!.chooseaSpeciality),
                 value: speciality.value,
                 items: DoctorSpeciality.specialities
                     .map((e) => DropdownMenuItem<DoctorSpeciality>(
@@ -115,10 +116,11 @@ class DoctorSignupScreen extends HookConsumerWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.h),
               child: PasswordTextField(
-                  label: 'Password',
+                  label: AppLocalizations.of(context)!.password,
                   controller: passwordController,
                   emptyTextError: 'Password is required',
-                  isSignUp: true),
+                  isSignUp: true
+              ),
             ),
             SizedBox(
               height: 32.h,
@@ -163,7 +165,7 @@ class DoctorSignupScreen extends HookConsumerWidget {
                     });
                   }
                 },
-                child: const Text('Create Doctor Account'))
+                child: Text(AppLocalizations.of(context)!.createDoctorAccount))
           ],
         ),
       ),

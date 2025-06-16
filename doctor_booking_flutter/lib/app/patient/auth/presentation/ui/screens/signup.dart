@@ -16,6 +16,8 @@ import 'package:doctor_booking_flutter/src/widgets/margin.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
+import '../../../../../../l10n/app_localizations.dart';
+
 ///Form for patient signUp
 
 @RoutePage(name: 'patientSignUp')
@@ -41,14 +43,14 @@ class PatientSignUpScreen extends HookConsumerWidget {
           children: [
             ColSpacing(16.h),
             KText(
-              'Welcome!👋',
+              AppLocalizations.of(context)!.welcomeHand,
               fontSize: 25.sp,
               fontWeight: FontWeight.w500,
               color: context.primary,
             ).animate(onPlay: (controller) => controller.repeat()).shimmer(
                 duration: const Duration(seconds: 2), color: context.onPrimary),
             KText(
-              'Please fill in the details below to create your account',
+              AppLocalizations.of(context)!.pleaseFill,
               fontSize: 16.sp,
             ),
             SizedBox(
@@ -56,8 +58,8 @@ class PatientSignUpScreen extends HookConsumerWidget {
             ),
 
             DefaultTextFormField(
-              label: 'Full name',
-              hint: 'Type your full name here',
+              label: AppLocalizations.of(context)!.fullName,
+              hint: AppLocalizations.of(context)!.typeYourFullNameHere,
               controller: fullNameController,
               emptyTextError: 'Full name is required',
               keyboardType: TextInputType.name,
@@ -76,7 +78,7 @@ class PatientSignUpScreen extends HookConsumerWidget {
             ),
             //email textField
             DefaultTextFormField(
-              label: 'Email address',
+              label: AppLocalizations.of(context)!.emailAddress,
               hint: 'user@example.com',
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
@@ -94,7 +96,7 @@ class PatientSignUpScreen extends HookConsumerWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.h),
               child: PasswordTextField(
-                  label: 'Password',
+                  label: AppLocalizations.of(context)!.password,
                   controller: passwordController,
                   emptyTextError: 'Password is required',
                   isSignUp: true),
@@ -141,7 +143,7 @@ class PatientSignUpScreen extends HookConsumerWidget {
                     });
                   }
                 },
-                child: const Text('Create Account'))
+                child: Text(AppLocalizations.of(context)!.createAccount))
           ],
         ),
       ),

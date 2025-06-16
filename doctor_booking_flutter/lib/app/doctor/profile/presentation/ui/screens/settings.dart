@@ -1,4 +1,5 @@
 import 'package:auto_route/annotations.dart';
+import 'package:doctor_booking_flutter/l10n/app_localizations.dart';
 import 'package:doctor_booking_flutter/lib.dart';
 import 'package:doctor_booking_flutter/src/providers.dart';
 import 'package:doctor_booking_flutter/src/widgets/margin.dart';
@@ -16,7 +17,7 @@ class SettingsScreen extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: KText(
-          'Settings',
+          AppLocalizations.of(context)!.settings,
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
         ),
@@ -28,7 +29,7 @@ class SettingsScreen extends HookConsumerWidget {
           children: [
             ColSpacing(32.h),
             KText(
-              'Preferences',
+              AppLocalizations.of(context)!.preferences,
               fontSize: 18.sp,
               fontWeight: FontWeight.w500,
             ),

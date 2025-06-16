@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:doctor_booking_flutter/app/common/home/models/appointment.dart';
 import 'package:doctor_booking_flutter/app/doctor/auth/data/models/doctor_speciality.dart';
 import 'package:doctor_booking_flutter/app/patient/home/providers.dart';
+import 'package:doctor_booking_flutter/l10n/app_localizations.dart';
 import 'package:doctor_booking_flutter/lib.dart';
 import 'package:doctor_booking_flutter/src/constants/assets.dart';
 import 'package:doctor_booking_flutter/src/extensions/context.dart';
@@ -26,7 +27,7 @@ class AppointmentDetailsScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: KText(
-          'Appointment Details',
+          AppLocalizations.of(context)!.appointmentDetails,
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
         ),
@@ -122,7 +123,7 @@ class AppointmentDetailsScreen extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 KText(
-                  'Date',
+                  AppLocalizations.of(context)!.date,
                   fontSize: 19.sp,
                   fontWeight: FontWeight.w700,
                 ),
@@ -152,7 +153,7 @@ class AppointmentDetailsScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   KText(
-                    'Patient Note',
+                    AppLocalizations.of(context)!.patientNote,
                     fontSize: 19.sp,
                     fontWeight: FontWeight.w700,
                   ),
@@ -167,7 +168,7 @@ class AppointmentDetailsScreen extends ConsumerWidget {
                       SizedBox(
                         width: 280.w,
                         child: KText(
-                          appointment.patientNote ?? 'No note added',
+                          appointment.patientNote ?? AppLocalizations.of(context)!.noNoteAdded,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
                         ),
@@ -188,24 +189,24 @@ class AppointmentDetailsScreen extends ConsumerWidget {
                           .toDateTimeRange.isLessThan24HrsToAppointment) {
                         //You can only cancel 24 hours before the appointment
                         Toast.error(
-                            'You can only cancel 24 hours before the appointment',
+                            AppLocalizations.of(context)!.youCanOnlyCancel,
                             // 'You can only cancel an appointment 24 hours before cannot cancel this appointment, it is less than 24 hours to the appointment',
-                            title: 'Unable to cancel appointment',
+                            title: AppLocalizations.of(context)!.unableToCancelAppointment,
                             context);
                       } else {
                         showAdaptiveDialog(
                             context: context,
                             builder: (context) => AlertDialog.adaptive(
-                                  title: const Text('Cancel appointment'),
-                                  content: const Text(
-                                      'Are you sure you want to cancel this appointment?'),
+                                  title:  Text(AppLocalizations.of(context)!.cancelAppointment),
+                                  content:  Text(
+                                      AppLocalizations.of(context)!.areYouSureYouWantToCancelThisAppointment),
                                   actions: [
                                     TextButton(
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
                                       child: Text(
-                                        'No',
+                                        AppLocalizations.of(context)!.no,
                                         style: AppStyle.textStyle
                                             .copyWith(color: context.outline),
                                       ),
@@ -222,7 +223,7 @@ class AppointmentDetailsScreen extends ConsumerWidget {
                                         result.when(success: (data) {
                                           context.router.popUntilRoot();
                                           Toast.success(
-                                            'Appointment cancelled successfully',
+                                            AppLocalizations.of(context)!.appointmentCancelledSuccessfully,
                                             context,
                                           );
                                         }, apiFailure: (e, _) {
@@ -231,11 +232,11 @@ class AppointmentDetailsScreen extends ConsumerWidget {
                                               'Unexpected error encountered',
                                               context,
                                               title:
-                                                  'Unable to cancel appointment');
+                                                  AppLocalizations.of(context)!.unableToCancelAppointment);
                                         });
                                       },
                                       child: Text(
-                                        'Yes, Cancel',
+                                        AppLocalizations.of(context)!.yes,
                                         style: AppStyle.textStyle
                                             .copyWith(color: context.error),
                                       ),
@@ -249,7 +250,7 @@ class AppointmentDetailsScreen extends ConsumerWidget {
                         // const Uuid().v4()
                       }
                     },
-                    child: const Text('Cancel Appointment')))
+                    child: Text(AppLocalizations.of(context)!.cancelAppointment)))
           ],
         ),
       ),

@@ -2,6 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:doctor_booking_flutter/app/doctor/auth/data/models/doctor.dart';
 import 'package:doctor_booking_flutter/app/patient/home/presentation/ui/widgets/doctor_card.dart';
 import 'package:doctor_booking_flutter/app/patient/home/providers.dart';
+import 'package:doctor_booking_flutter/l10n/app_localizations.dart';
 import 'package:doctor_booking_flutter/lib.dart';
 import 'package:doctor_booking_flutter/src/widgets/margin.dart';
 
@@ -31,8 +32,8 @@ class PatientSearchScreen extends HookConsumerWidget {
                 //if(value.isEmpty){}
 
               },
-                decoration: const InputDecoration(
-                    hintText: 'Search doctor here',
+                decoration:  InputDecoration(
+                    hintText: AppLocalizations.of(context)!.searchDoctorHere,
                     prefixIcon: Icon(Icons.search)),
               ),
               ColSpacing(24.h),
@@ -47,9 +48,9 @@ class PatientSearchScreen extends HookConsumerWidget {
                   if (filteredList.value.isEmpty) {
                     return SizedBox(
                       height: 300.h,
-                      child: const Center(
+                      child:  Center(
                         child: KText(
-                          'No doctor found, please check in later',
+                         AppLocalizations.of(context)!.noDoctorFound,
                           textAlign: TextAlign.center,
                         ),
                       ),

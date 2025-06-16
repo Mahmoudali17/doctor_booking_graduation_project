@@ -1,3 +1,4 @@
+import 'package:doctor_booking_flutter/l10n/app_localizations.dart';
 import 'package:doctor_booking_flutter/lib.dart';
 
 class PasswordTextField extends HookWidget {
@@ -71,7 +72,7 @@ class PasswordTextField extends HookWidget {
             decoration: InputDecoration(
               contentPadding: const EdgeInsets.only(left: 10, top: 1),
               hintText: hint,
-              labelText: 'Confirm password',
+              labelText: AppLocalizations.of(context)!.confirmPassword,
               helperText: helperText,
               suffixIcon: InkWell(
                 onTap: () {
